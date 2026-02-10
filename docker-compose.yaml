@@ -1,0 +1,17 @@
+services:
+
+  backend:
+    image: backendjenkins:latest
+    container_name: backend_container_jen
+    ports:
+      - "8000:8000"
+    restart: always
+
+  frontend:
+    image: frontendjenkins:latest
+    container_name: frontend_container_Jen
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: always
