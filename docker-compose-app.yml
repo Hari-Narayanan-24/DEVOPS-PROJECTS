@@ -1,0 +1,27 @@
+version: "3.8"
+
+networks:
+  devops-net:
+    external: true
+
+services:
+
+  backend:
+    image: backendjenkins:latest
+    container_name: backend_container
+    ports:
+      - "8001:8000"
+    networks:
+      - devops-net
+    restart: always
+
+  frontend:
+    image: frontendjenkins:latest
+    container_name: frontend_container
+    ports:
+      - "3001:80"
+    depends_on:
+      - backend
+    networks:
+      - devops-net
+    restart: always
