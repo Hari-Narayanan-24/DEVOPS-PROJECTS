@@ -15,7 +15,7 @@ pipeline {
                 echo 'Building Backend Docker image...'
                 sh '''
                     cd Devops_1/app/backend
-                    docker build -t backendjenkins:latest .
+                    docker build -t backendjenkins:1.${BUILD_NUMBER} .
                 '''
             }
         }
@@ -25,7 +25,7 @@ pipeline {
                 echo 'Building Frontend Docker image...'
                 sh '''
                     cd Devops_1/app/frontend
-                    docker build -t frontendjenkins:latest .
+                    docker build -t frontendjenkins:1.${BUILD_NUMBER} .
                 '''
             }
         }
