@@ -15,7 +15,8 @@ pipeline {
                 echo 'Building Backend Docker image...'
                 sh '''
                     cd Devops_1/app/backend
-                    docker build -t backendjenkins:1.${BUILD_NUMBER} .
+                    docker build -t backendjenkins:1.0.${BUILD_NUMBER} .
+                    docker tag backendjenkins:1.0.${BUILD_NUMBER} backendjenkins:latest
                 '''
             }
         }
@@ -25,7 +26,8 @@ pipeline {
                 echo 'Building Frontend Docker image...'
                 sh '''
                     cd Devops_1/app/frontend
-                    docker build -t frontendjenkins:1.${BUILD_NUMBER} .
+                    docker build -t frontendjenkins:1.0.${BUILD_NUMBER} .
+                    docker tag frontendjenkins:1.0.${BUILD_NUMBER} frontendjenkins:latest
                 '''
             }
         }
