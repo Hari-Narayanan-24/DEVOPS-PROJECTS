@@ -35,7 +35,8 @@ pipeline {
                 echo 'Deploying containers...'
                 sh '''
                     cd Devops_1
-                    docker compose up -d
+                    docker-compose down || true
+                    docker-compose up -d
                 '''
             }
         }
