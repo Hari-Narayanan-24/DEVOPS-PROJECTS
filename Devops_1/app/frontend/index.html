@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DEVOPS 1 FRONTEND</title>
+</head>
+<body>
+    <h2>Greeting App</h2>
+
+    <input type="text" id="name" placeholder="Enter your name" />
+    <button onclick="sendName()">Send</button>
+
+    <p id="result"></p>
+
+    <script>
+        function sendName() {
+            const name = document.getElementById("name").value;
+
+            fetch(`http://localhost:8000/greet/${name}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("result").innerText = data.message;
+                });
+        }
+    </script>
+</body>
+</html>
+
+
